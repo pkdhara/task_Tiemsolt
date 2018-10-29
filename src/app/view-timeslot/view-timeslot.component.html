@@ -1,0 +1,87 @@
+<div class="col-md-12 col-xs-12">
+    <div class="search-timeslot card">
+        <div class="search-timeslot-head card-title">
+            Search Timeslots
+            <span style="float:right;cursor:pointer;" (click)="setShowCardBody()" *ngIf="showCardBody">▼</span>
+            <span style="float:right;cursor:pointer;" (click)="setShowCardBody()" *ngIf="!showCardBody">▲</span>
+        </div>
+        <div class="card-body" *ngIf="showCardBody">
+            <div class="form-group row">
+                <label for="type" class="col-sm-1 col-form-label offset-md-3 col-form-label-sm" style="font-weight:bold">Type :</label>
+                <div class="col-sm-4">
+                    <select class="form-control form-control-sm" [(ngModel)]="typeKey">
+                        <option [value]="type" *ngFor="let type of types">{{ type }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="state" class="col-sm-1 col-form-label offset-md-3" style="font-weight:bold">State :</label>
+                <div class="col-sm-4">
+                    <select class="form-control form-control-sm" [(ngModel)]="stateKey">
+                        <option [value]="state" *ngFor="let state of states">{{ state }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row days">
+                <label for="days" class="col-sm-1 col-form-label offset-md-3" style="margin-top: 12px;font-weight:bold">Days :</label>
+                <div class="col-xs-12">
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="check_1" name="check_1" value="check_1" [(ngModel)]="days.sun">
+                            <label for="check_1">SUN</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="check_2" name="check_2" value="check_2" [(ngModel)]="days.mon">
+                            <label for="check_2">MON</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="check_3" name="check_3" value="check_3" [(ngModel)]="days.tue">
+                            <label for="check_3">TUE</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="check_4" name="check_4" value="check_4" [(ngModel)]="days.wed">
+                            <label for="check_4">WED</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="check_5" name="check_5" value="check_5" [(ngModel)]="days.thu">
+                            <label for="check_5">THU</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="check_6" name="check_6" value="check_6" [(ngModel)]="days.fri">
+                            <label for="check_6">FRI</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="check_7" name="check_7" value="check_7" [(ngModel)]="days.sat">
+                            <label for="check_7">SAT</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="duration" class="col-sm-1 col-form-label offset-md-3" style="font-weight:bold;margin-top:7px;">Duration :</label>
+                <div class="col-sm-6">
+                    <ul>
+                        <li>
+                        <ngx-material-timepicker #pickerFrom></ngx-material-timepicker>
+                        <input [ngxTimepicker]="pickerFrom" class="form-control-sm" style="border-radius:2px;cursor:pointer;" placeholder="Start">
+                        </li>
+                        <li>
+                          <b>:</b>
+                        </li>
+                        <li>
+                          <input [ngxTimepicker]="pickerTo" class="form-control-sm" style="border-radius:2px;cursor:pointer;" placeholder="End">
+                          <ngx-material-timepicker #pickerTo></ngx-material-timepicker>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="match" class="col-sm-2 col-form-label offset-md-3" style="font-weight:bold;">Exact match :</label>
+                <div class="col-sm-1 match">
+                    <input type="checkbox" name="match" id="match" class="form-control-sm">
+                </div>
+            </div>
+            <button class="btn" style="background-color:#EEEEE;font-weight:bold;float:right"> Display Results </button>
+        </div>
+    </div>
+</div>
